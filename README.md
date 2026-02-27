@@ -94,17 +94,16 @@ Add to your project's `.claude/settings.json`:
 
 Cursor has a native skills system (launched Feb 2026) that is directly compatible with the `SKILL.md` format — no rules file needed.
 
-**Option A — GitHub install (recommended):**
-1. Open Cursor Settings → Rules
-2. Click **Add Rule** → **Remote Rule (GitHub)**
-3. Paste `https://github.com/pablo-mano/Obsidian-CLI-skill`
-4. Done — the skill auto-triggers on Obsidian-related tasks.
+In a terminal:
 
-**Option B — Local copy:**
-1. Clone or download this repo
-2. Copy the folder into your project: `.cursor/skills/obsidian-cli/`
-   (or globally: `~/.cursor/skills/obsidian-cli/`)
-3. Cursor picks it up automatically — no restart needed.
+```bash
+git clone --depth 1 https://github.com/pablo-mano/Obsidian-CLI-skill /tmp/Obsidian-CLI-skill
+mkdir -p ~/.cursor/skills
+cp -r /tmp/Obsidian-CLI-skill/skills/obsidian-cli ~/.cursor/skills/obsidian-cli
+rm -rf /tmp/Obsidian-CLI-skill
+```
+
+Cursor picks it up automatically — no restart needed.
 
 ---
 
