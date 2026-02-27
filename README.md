@@ -53,20 +53,28 @@ Covers **100+ commands** across all major areas:
 
 ### Claude Code — Plugin (native)
 
-Install directly from GitHub using the Claude Code plugin system:
-
-1. Open Claude Code and run:
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/pablo-mano/Obsidian-CLI-skill
    ```
-   /plugin marketplace add https://github.com/pablo-mano/Obsidian-CLI-skill
+2. Load the plugin with the `--plugin-dir` flag:
+   ```bash
+   claude --plugin-dir ./Obsidian-CLI-skill
    ```
-2. Install the `obsidian-cli` skill from the plugin list.
 3. Done — the skill auto-triggers when you ask Claude to interact with Obsidian, automate vault operations, manage daily notes, search your vault, etc.
 
-**Alternative — manual install:**
-1. Download `obsidian-cli-skill-v1.0.1.zip` from the [Releases](https://github.com/pablo-mano/Obsidian-CLI-skill/releases) page.
-2. Open Claude Code → Skills plugin settings → Import → select the `.zip`.
+**Persistent setup** — add to your project's `.claude/settings.json` so the plugin loads automatically:
+```json
+{
+  "plugins": {
+    "obsidian-cli": {
+      "source": { "source": "github", "repo": "pablo-mano/Obsidian-CLI-skill" }
+    }
+  }
+}
+```
 
-> The `plugin.json` manifest at the repo root makes this repository directly compatible with Claude Code's plugin system.
+> The `.claude-plugin/plugin.json` manifest makes this repository directly compatible with Claude Code's plugin system.
 
 ---
 
@@ -93,7 +101,7 @@ Cursor has a native skills system (launched Feb 2026) that is directly compatibl
 Windsurf uses a Rules system (`.windsurf/rules/`). Rules have a 12,000 character limit per file, so split the skill across two files:
 
 1. Create `.windsurf/rules/obsidian-cli.md` — paste the body of `SKILL.md` (everything after the `---` frontmatter).
-2. Create `.windsurf/rules/obsidian-cli-reference.md` — paste the contents of `references/command-reference.md`.
+2. Create `.windsurf/rules/obsidian-cli-reference.md` — paste the contents of `skills/obsidian-cli/references/command-reference.md`.
 
 Set the activation mode to **Always On** or **Model Decision** in each file's frontmatter to control when the rules apply.
 
@@ -147,7 +155,7 @@ Copilot supports [custom instructions](https://docs.github.com/en/copilot/custom
 
 1. Open the agent's system prompt / custom instructions settings.
 2. Paste the contents of `SKILL.md` (with or without the YAML frontmatter — most agents accept either).
-3. Optionally include `references/command-reference.md` for the complete command reference.
+3. Optionally include `skills/obsidian-cli/references/command-reference.md` for the complete command reference.
 
 This works with any chat interface or coding agent that has a system prompt or custom instructions field.
 
@@ -190,7 +198,7 @@ obsidian daily:append content="- Started [[projects/new-feature|New Feature]]"
 
 ## Full Command Reference
 
-See [`references/command-reference.md`](references/command-reference.md) for the complete reference covering all commands, parameters, flags, output formatting, multi-vault usage, and headless Linux setup.
+See [`skills/obsidian-cli/references/command-reference.md`](skills/obsidian-cli/references/command-reference.md) for the complete reference covering all commands, parameters, flags, output formatting, multi-vault usage, and headless Linux setup.
 
 ---
 
