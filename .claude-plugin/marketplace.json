@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "obsidian-cli-skill",
+  "description": "Obsidian CLI skill for Claude Code — interact with Obsidian vaults from the terminal",
+  "owner": {
+    "name": "pablo-mano"
+  },
+  "plugins": [
+    {
+      "name": "obsidian-cli",
+      "description": "Interact with Obsidian vaults using the official Obsidian CLI (v1.12+). Read, create, append, search, and manage notes, daily notes, properties, tags, tasks, bookmarks, templates, themes, sync, plugins, and links — all from the terminal.",
+      "author": {
+        "name": "pablo-mano"
+      },
+      "source": ".",
+      "category": "productivity",
+      "homepage": "https://github.com/pablo-mano/Obsidian-CLI-skill"
+    }
+  ]
+}
