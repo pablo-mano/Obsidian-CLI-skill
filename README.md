@@ -72,34 +72,72 @@ Install directly from GitHub using the Claude Code plugin system:
 
 ### Cursor
 
-Cursor loads context via [Rules](https://docs.cursor.com/context/rules-for-ai). Add the skill as a project-level or global rule:
+Cursor has a native skills system (launched Feb 2026) that is directly compatible with the `SKILL.md` format — no rules file needed.
 
-1. Create the file `.cursor/rules/obsidian-cli.mdc` in your project root (or in `~/.cursor/rules/` for global scope).
-2. Paste the body of `SKILL.md` (everything after the `---` frontmatter block) into the file.
-3. Optionally append the contents of `references/command-reference.md` for the full command reference.
+**Option A — GitHub install (recommended):**
+1. Open Cursor Settings → Rules
+2. Click **Add Rule** → **Remote Rule (GitHub)**
+3. Paste `https://github.com/pablo-mano/Obsidian-CLI-skill`
+4. Done — the skill auto-triggers on Obsidian-related tasks.
 
-Cursor will now apply Obsidian CLI knowledge when you work on related tasks.
+**Option B — Local copy:**
+1. Clone or download this repo
+2. Copy the folder into your project: `.cursor/skills/obsidian-cli/`
+   (or globally: `~/.cursor/skills/obsidian-cli/`)
+3. Cursor picks it up automatically — no restart needed.
 
 ---
 
 ### Windsurf
 
-Windsurf uses [Rules](https://docs.windsurf.com/windsurf/memories-and-rules) stored in `.windsurf/rules/`:
+Windsurf uses a Rules system (`.windsurf/rules/`). Rules have a 12,000 character limit per file, so split the skill across two files:
 
-1. Create `.windsurf/rules/obsidian-cli.md` in your project.
-2. Paste the body of `SKILL.md` (below the frontmatter) into the file.
-3. Optionally include the command reference from `references/command-reference.md`.
+1. Create `.windsurf/rules/obsidian-cli.md` — paste the body of `SKILL.md` (everything after the `---` frontmatter).
+2. Create `.windsurf/rules/obsidian-cli-reference.md` — paste the contents of `references/command-reference.md`.
+
+Set the activation mode to **Always On** or **Model Decision** in each file's frontmatter to control when the rules apply.
+
+---
+
+### Nanoclaw
+
+Nanoclaw loads skills from `.claude/skills/` using the same `SKILL.md` format — directly compatible.
+
+1. Clone or download this repo
+2. Copy the skill folder into your Nanoclaw project:
+   ```bash
+   cp -r Obsidian-CLI-skill /path/to/nanoclaw/.claude/skills/obsidian-cli
+   ```
+3. The skill is available as a slash command (`/obsidian-cli`) or auto-triggers when you ask the agent to interact with Obsidian.
+
+> This is a knowledge skill — it adds Obsidian CLI awareness to the agent without modifying Nanoclaw's codebase.
+
+---
+
+### Openclaw
+
+Openclaw loads skills from the `skills/` directory at the project root using the `SKILL.md` format — directly compatible.
+
+1. Clone or download this repo
+2. Copy the skill folder into Openclaw's skills directory:
+   ```bash
+   cp -r Obsidian-CLI-skill /path/to/openclaw/skills/obsidian-cli
+   ```
+3. Restart the Openclaw agent — skills are discovered automatically.
 
 ---
 
 ### GitHub Copilot (VS Code)
 
-Copilot supports [custom instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) via a repository-level file:
+Copilot supports [custom instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) via repository files:
 
+**Repository-wide** (applies to all files):
 1. Create `.github/copilot-instructions.md` in your repo.
 2. Paste the body of `SKILL.md` into the file.
 
-For workspace-level instructions in VS Code, add the content to your VS Code settings under `"github.copilot.chat.codeGeneration.instructions"`.
+**Path-scoped** (optional alternative):
+1. Create `.github/instructions/obsidian-cli.instructions.md`
+2. Add frontmatter `applyTo: "**/*"` then paste the `SKILL.md` body.
 
 ---
 
@@ -111,7 +149,7 @@ For workspace-level instructions in VS Code, add the content to your VS Code set
 2. Paste the contents of `SKILL.md` (with or without the YAML frontmatter — most agents accept either).
 3. Optionally include `references/command-reference.md` for the complete command reference.
 
-This works with Aider, Continue.dev, LM Studio, Open Interpreter, or any chat interface with a system prompt field.
+This works with any chat interface or coding agent that has a system prompt or custom instructions field.
 
 ---
 
