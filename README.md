@@ -63,7 +63,7 @@ Install directly from GitHub using the Claude Code plugin system:
 3. Done — the skill auto-triggers when you ask Claude to interact with Obsidian, automate vault operations, manage daily notes, search your vault, etc.
 
 **Alternative — manual install:**
-1. Download `obsidian-cli-skill-v1.0.0.zip` from the [Releases](https://github.com/pablo-mano/Obsidian-CLI-skill/releases) page.
+1. Download `obsidian-cli-skill-v1.0.1.zip` from the [Releases](https://github.com/pablo-mano/Obsidian-CLI-skill/releases) page.
 2. Open Claude Code → Skills plugin settings → Import → select the `.zip`.
 
 > The `plugin.json` manifest at the repo root makes this repository directly compatible with Claude Code's plugin system.
