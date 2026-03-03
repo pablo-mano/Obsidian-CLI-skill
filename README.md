@@ -31,6 +31,20 @@ Covers **100+ commands** across all major areas:
 
 ---
 
+## Invoking the Skill
+
+The skill activates automatically when your request clearly involves Obsidian vault operations. For casual phrasing, you may need to invoke it explicitly:
+
+| Method | Example |
+|---|---|
+| **Natural language** (usually works) | *"add this to my daily note: …"*, *"search my vault for X"* |
+| **Explicit prefix** (always works) | `$obsidian-cli append to today's daily note: "…"` |
+| **Strict mode** (always active) | Enable in Claude Code settings so the skill is always loaded |
+
+If Claude tries to answer a vault request without executing any commands, just say `use obsidian-cli` and it will retry with the skill active.
+
+---
+
 ## Prerequisites
 
 > Obsidian v1.12 is available to **all users** — no Early Access build or Catalyst license required.
@@ -60,7 +74,7 @@ Covers **100+ commands** across all major areas:
 /plugin install obsidian-cli
 ```
 
-Done — the skill auto-triggers when you ask Claude to interact with Obsidian.
+Done — see [Invoking the Skill](#invoking-the-skill) above for how to activate it.
 
 **Option B — Direct plugin load:**
 
