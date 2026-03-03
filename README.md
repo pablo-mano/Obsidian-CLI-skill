@@ -107,6 +107,60 @@ Cursor picks it up automatically — no restart needed.
 
 ---
 
+### Cortex Code
+
+**Option A — Remote install (recommended)**
+
+In a Cortex Code session, run:
+
+```
+/skill add https://github.com/pablo-mano/Obsidian-CLI-skill.git
+```
+
+Cortex Code clones the repo and caches the skill. Use `/skill sync obsidian-cli` to pull
+updates later.
+
+**Option B — Project-local install**
+
+```bash
+mkdir -p .cortex/skills/obsidian-cli
+curl -sSL https://raw.githubusercontent.com/pablo-mano/Obsidian-CLI-skill/main/skills/obsidian-cli/SKILL.md \
+  -o .cortex/skills/obsidian-cli/SKILL.md
+```
+
+Or clone the repo and copy:
+
+```bash
+git clone https://github.com/pablo-mano/Obsidian-CLI-skill.git /tmp/obsidian-cli-skill
+cp -r /tmp/obsidian-cli-skill/skills/obsidian-cli .cortex/skills/
+```
+
+**Option C — User-level install**
+
+```bash
+mkdir -p ~/.snowflake/cortex/skills/obsidian-cli
+cp skills/obsidian-cli/SKILL.md ~/.snowflake/cortex/skills/obsidian-cli/
+```
+
+**Verify**
+
+```
+/skill list
+```
+
+You should see `obsidian-cli` in the output.
+
+**Invoke**
+
+Prefix requests with `$obsidian-cli` or just describe what you want — Cortex Code activates
+the skill automatically when the context matches:
+
+```
+$obsidian-cli append to today's daily note: "Reviewed Snowflake PR #42"
+```
+
+---
+
 ### GitHub Copilot (VS Code)
 
 Copilot supports [custom instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) via repository files:
