@@ -17,8 +17,9 @@ description: >
 
 The official Obsidian CLI (released in v1.12, February 2026) lets you control every aspect of Obsidian from the terminal. It communicates with a running Obsidian desktop instance via IPC.
 
-> For the full command reference with all subcommands, flags and examples, read
-> `references/command-reference.md` in this skill folder.
+> Read `references/command-reference.md` when you need specific flags, output formats, or
+> subcommands for any command group. It covers all 130+ commands with full parameter tables
+> and has a table of contents at the top.
 
 ## Prerequisites
 
