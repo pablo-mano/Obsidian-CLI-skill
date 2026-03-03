@@ -2,6 +2,7 @@
 
 A skill for AI coding agents that enables full control of [Obsidian](https://obsidian.md) vaults from the terminal using the official **Obsidian CLI** (v1.12+).
 
+![Version](https://img.shields.io/badge/skill-v1.3.0-CC785C)
 ![Obsidian](https://img.shields.io/badge/Obsidian-v1.12%2B-7C3AED?logo=obsidian&logoColor=white)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-D97757)
 ![Claude Code Plugin](https://img.shields.io/badge/Anthropic-Compatible-CC785C)
