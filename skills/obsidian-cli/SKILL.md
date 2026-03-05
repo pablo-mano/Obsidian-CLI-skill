@@ -54,7 +54,7 @@ The official Obsidian CLI (released in v1.12, February 2026) lets you control ev
 
 | Requirement | Details |
 |---|---|
-| Obsidian Desktop | **v1.12.0+** |
+| Obsidian Desktop | **v1.12.4+** (recommended; CLI introduced in v1.12.0) |
 | CLI enabled | Settings → Command line interface → Toggle ON |
 | Obsidian running | The desktop app **must be running** for CLI to work (IPC) |
 
@@ -109,7 +109,7 @@ The CLI provides **130+ commands** across these groups:
 | **history** | `history`, `history:list`, `history:read`, `history:restore` | File version recovery (File Recovery plugin) |
 | **workspace** | `workspace`, `tabs`, `tab:open` | Workspace layout and tab management |
 | **diff** | `diff` | Compare local vs sync file versions |
-| **dev** | `eval`, `dev:screenshot`, `dev:debug`, `dev:console`, `dev:errors`, `dev:css`, `dev:dom`, `devtools` | Developer/debugging tools |
+| **dev** | `eval`, `dev:screenshot`, `dev:debug`, `dev:console`, `dev:errors`, `dev:css`, `dev:dom`, `dev:mobile`, `devtools` | Developer/debugging tools |
 | **vault** | `vault`, `vaults`, `version`, `reload`, `restart` | Vault info and app control |
 | **other** | `outline`, `wordcount`, `recents` | Utility commands |
 

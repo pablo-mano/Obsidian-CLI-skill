@@ -81,7 +81,7 @@ The CLI provides **130+ commands** across these groups:
 | **history** | `history`, `history:list`, `history:read`, `history:restore` | File version recovery (File Recovery plugin) |
 | **workspace** | `workspace`, `tabs`, `tab:open` | Workspace layout and tab management |
 | **diff** | `diff` | Compare local vs sync file versions |
-| **dev** | `eval`, `dev:screenshot`, `dev:debug`, `dev:console`, `dev:errors`, `dev:css`, `dev:dom`, `devtools` | Developer/debugging tools |
+| **dev** | `eval`, `dev:screenshot`, `dev:debug`, `dev:console`, `dev:errors`, `dev:css`, `dev:dom`, `dev:mobile`, `devtools` | Developer/debugging tools |
 | **vault** | `vault`, `vaults`, `version`, `reload`, `restart` | Vault info and app control |
 | **other** | `outline`, `wordcount`, `recents` | Utility commands |
 
