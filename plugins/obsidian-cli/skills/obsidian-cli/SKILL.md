@@ -34,6 +34,8 @@ The official Obsidian CLI (released in v1.12, February 2026) lets you control ev
 
 - **macOS / Linux**: The `obsidian` binary is registered in PATH automatically when you enable CLI in settings.
 - **Windows**: Requires an `Obsidian.com` redirector file placed alongside `Obsidian.exe`. **Must run with normal user privileges** — admin terminals produce silent failures.
+  - If colon subcommands (`property:set`, `daily:append`, etc.) with parameters return exit 127, verify that `Obsidian.com` exists alongside `Obsidian.exe`. Users who installed before v1.12 and updated in-app may be missing this file — download the latest installer from [obsidian.md/download](https://obsidian.md/download) to fix.
+  - **Git Bash / MSYS2 users**: Bash does not follow Windows' `.com`-before-`.exe` priority, so `obsidian` resolves to `Obsidian.exe` (GUI mode) instead of `Obsidian.com` (CLI). Create a wrapper script — see Troubleshooting.
 - **Headless Linux**: Use the `.deb` package (not snap). Run under `xvfb`. Prefix commands with `DISPLAY=:5` (or your xvfb display number). Ensure `PrivateTmp=false` if running as a service.
 
 ## Syntax
@@ -241,6 +243,7 @@ obsidian command id="dataview:dataview-force-refresh-views"
     obsidian eval code="$(cat /tmp/obs.js)"
     ```
 12. **Multi-vault targeting may not work in all environments** — `obsidian "My Vault" command` can return `Error: Command "My Vault" not found` on some setups. If this happens, omit the vault name (CLI targets the most recently active vault) and switch vaults manually in the Obsidian UI.
+13. **When colon subcommands are unavailable** (e.g., missing `Obsidian.com` on Windows), prefer non-colon alternatives: use `properties` instead of `property:read`, or `obsidian daily:path` + `obsidian append path="..."` instead of `daily:append`. Most read-only and file operations work without colon subcommands.
 
 ## Troubleshooting
 
@@ -254,3 +257,5 @@ obsidian command id="dataview:dataview-force-refresh-views"
 | Snap confinement issues | Snap restricts IPC | Use `.deb` package instead |
 | Multi-vault `"Name" command` fails | Vault name matching issue | Omit vault name; target most recent vault |
 | `property:set` list value is a string | CLI stores value as-is | Edit frontmatter directly or use `eval` |
+| Colon+params exit 127 (Windows, `Obsidian.com` missing) | Outdated installer — in-app update skips `.com` file | Reinstall from [obsidian.md/download](https://obsidian.md/download) |
+| Colon+params exit 127 (Git Bash / MSYS2) | Bash resolves `obsidian` to `.exe` (GUI), not `.com` (CLI) | Create `~/bin/obsidian` wrapper: `#!/bin/bash`<br>`/c/Users/<you>/AppData/Local/Obsidian/Obsidian.com "$@"` and add `export PATH="$HOME/bin:$PATH"` to `~/.bashrc` |
